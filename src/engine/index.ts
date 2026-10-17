@@ -18,5 +18,21 @@
 // "src/engine", and they only see what is exported here.
 // =============================================================================
 
-// Nothing exported yet. `export {}` just tells TypeScript "this file is a module".
-export {};
+// Re-export the data model types from ./types.ts, so other folders can write:
+//   import type { Rung } from "../engine";
+// without knowing which file inside engine/ the type comes from.
+//
+// `export type { ... } from "./types"` means: take these type names from the
+// file types.ts in this same folder ("./" = this folder, the ".ts" is left
+// out) and make them public. The word `type` says these are only types, not
+// code that runs (our compiler settings require writing it).
+export type {
+  AreaKind,
+  Address,
+  ContactKind,
+  Contact,
+  Coil,
+  Rung,
+  Program,
+  PlcState,
+} from "./types";
