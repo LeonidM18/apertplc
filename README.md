@@ -44,6 +44,7 @@ src/
 
 - **[CONTRIBUTING.md](CONTRIBUTING.md)**: setup and the daily git workflow. Start here.
 - **[AGENTS.md](AGENTS.md)**: rules for AI coding assistants. They read it automatically.
+- **[docs/roadmap.md](docs/roadmap.md)**: who builds what, week by week, until the MVP.
 
 ## Tech stack
 
