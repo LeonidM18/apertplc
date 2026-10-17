@@ -1,0 +1,10 @@
+# Tells git how to treat files in this repository.
+# "text=auto eol=lf": git detects text files and always stores them with LF
+# line endings, no matter which operating system a teammate uses.
+# This prevents fake "every line changed" diffs between Windows and Mac/Linux.
+* text=auto eol=lf
+
+# Binary files: never touch their contents.
+*.png binary
+*.jpg binary
+*.ico binary
