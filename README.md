@@ -1,32 +1,50 @@
-# React + TypeScript + Vite
+# ApertPLC
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A free, browser-based PLC programming app for students.
 
-Currently, two official plugins are available:
+Draw ladder logic (contacts, coils, timers, counters) and run it in a simulator
+with virtual switches and lamps. No real PLC hardware or paid software needed.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+> Status: early development. Nothing works yet. We are setting up the project.
 
-## React Compiler
+## Run it on your computer
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+You need [Node.js](https://nodejs.org) (LTS version) and [Git](https://git-scm.com).
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```powershell
+git clone https://github.com/LeonidM18/apertplc.git
+cd apertplc
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Then open the address it prints (usually http://localhost:5173).
+
+## Useful commands
+
+| Command         | What it does                                              |
+|-----------------|-----------------------------------------------------------|
+| `npm run dev`   | Starts the app locally. The page reloads when you save.   |
+| `npm run build` | Checks all TypeScript types and builds the final website. |
+| `npm run lint`  | Checks the code for common mistakes.                      |
+
+## Project structure
+
+```
+src/
+├─ engine/    PLC logic and scan-cycle simulator (pure TypeScript, no React)
+├─ editor/    Ladder diagram editor UI
+├─ io/        Virtual switches (inputs) and lamps (outputs)
+├─ storage/   Saving and loading projects (behind an interface)
+├─ App.tsx    Connects all parts together
+└─ main.tsx   Entry point that starts the app
+```
+
+## For the team
+
+- **[CONTRIBUTING.md](CONTRIBUTING.md)**: setup and the daily git workflow. Start here.
+- **[AGENTS.md](AGENTS.md)**: rules for AI coding assistants. They read it automatically.
+
+## Tech stack
+
+React + TypeScript + Vite. Everything runs in the browser; there is no server yet.
